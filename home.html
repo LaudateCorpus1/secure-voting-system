@@ -1,0 +1,58 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+
+        #b
+        {
+         background: url("{% static 'img/ah.png' %}") no-repeat fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+
+
+        }
+                input[type=text],textarea {
+    width: 400px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: #f1f1f1;
+    padding-top: 12px;
+    padding-bottom: 12px;
+            margin-bottom : 20px;
+}
+        input[type=button], input[type=submit], input[type=reset] {
+    background-color: #600930;
+    border: none;
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+    </style>
+</head>
+<body  id="b">
+<br>
+
+    <a href='/signup/' style="text-decoration:none;color:#90009c;font-family: Courier;font-size: 25px; margin-left: 1450px;margin-top: 25px;"> SIGN UP</a>
+<br>
+<br>
+    <div style="width: 1000px">
+    <form method="post" style="color:#600930;font-family: Courier;font-size: 15px; margin-left: 1200px;margin-top: 450px;">{% csrf_token %}
+        <a href='/forgetpassword0/' style="text-decoration:none;color:#90009c;font-family: Courier;font-size: 15px;"> FORGET PASSWORD?</a> <br><br>
+        {{form}}
+        <input type="submit"  value="sign in">
+    </form>
+    </div>
+</body>
+</html>

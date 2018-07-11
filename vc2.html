@@ -1,0 +1,88 @@
+{% load static %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta content="stuff, to, help, search, engines, not" name="keywords">
+    <meta content="What this page is about." name="description">
+    <meta content="Display Webcam Stream" name="title">
+
+    <style>
+        #b
+        {
+         background: url("{% static 'img/boo.png' %}") no-repeat fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+
+
+
+        }
+        #container {
+                margin: 0px auto;
+                width: 500px;
+                height: 375px;
+                border: 10px #333 solid;
+        }
+        input[type=text],textarea {
+    width: 400px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: #f1f1f1;
+    padding-top: 12px;
+    padding-bottom: 12px;
+            margin-bottom : 20px;
+}
+        input[type=button], input[type=submit], input[type=reset] {
+    background-color: #600930;
+    border: none;
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+
+
+
+    </style>
+</head>
+<body  id="b">
+<br>
+
+
+
+    <span style="text-decoration:none;color:white;font-family: Courier;font-size: 40px; margin-left: 1200px;margin-top: 25px; "> VISUAL CRYPTO
+
+    </span><br><br>
+    <p style="text-decoration:none;color:white;font-family: Courier;font-size: 20px; margin-left: 1300px;margin-top: 25px;"> please enter the captcha
+        {% if user.owner %}
+<img src="{{ user.owner.url }}" style="display: inline;"  align="right" >
+    {% endif %}
+    </p>
+
+ <span  style="color:black;font-family: Courier;font-size: 30px;margin-top: 25px;"> * notice if you don't redirected autmatically after submiting that's because of wrong captcha  </span><br><br>
+<br><br><br>
+    <span style="text-decoration:none;color:white;font-family: Courier;font-size: 20px; margin-left: 350px;"> 1/ if the image is un recognized that's because  </span>
+<br><br>
+    <span style="text-decoration:none;color:white;font-family: Courier;font-size: 20px; margin-left: 350px;">you uploaded wrong shar1 go back and upload</span>
+<br><br>
+    <span style="text-decoration:none;color:white;font-family: Courier;font-size: 20px; margin-left: 350px;">the right one </span>
+<br><br>
+<span style="text-decoration:none;color:white;font-family: Courier;font-size: 20px; margin-left: 350px;">2/ if not enter the captcha in this form :</span><br><br>
+<span style="text-decoration:none;color:white;font-family: Courier;font-size: 20px; margin-left: 350px;">firstword secondword thirdword fourthword</span><br><br>
+<span style="text-decoration:none;color:white;font-family: Courier;font-size: 20px; margin-left: 400px;">* seprated by spaces </span>
+    <form method="post" style="color:#f8f8f8;font-family: Courier;font-size: 20px; margin-left: 400px;margin-top: 50px" enctype="multipart/form-data">{% csrf_token %}
+        {{form|crispy}}
+        <input type="submit"  value="confirm">
+    </form>
+
+</body>
+</html>
